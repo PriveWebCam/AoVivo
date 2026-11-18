@@ -3,10 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#020502">
-<title>Privê Webcam</title>
+<meta name="theme-color" content="#050605">
+<title>PRIVÊ WEBCAM</title>
 
 <style>
+:root {
+  --verde: #9cff00;
+  --vermelho: #ed3449;
+  --fundo: #050605;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -14,349 +20,231 @@
 body {
   margin: 0;
   min-height: 100vh;
-  padding: 30px 15px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
-  text-align: center;
-  background: radial-gradient(ellipse at center, #102600 0%, #030703 52%, #000 100%);
-}
-
-.pagina {
-  width: 100%;
-  max-width: 700px;
-}
-
-.marca {
-  display: flex;
   justify-content: center;
-  align-items: baseline;
-  gap: 7px;
-  flex-wrap: wrap;
-  margin-bottom: 48px;
-  color: #91ff00;
-  font-family: "Brush Script MT", cursive;
-  font-size: clamp(43px, 10vw, 76px);
-  font-weight: bold;
-  font-style: italic;
-  line-height: 1.15;
-  text-shadow: 0 0 12px #67ff00, 0 0 30px #397d00;
+  padding: 24px 16px;
+  background:
+    radial-gradient(ellipse at center, #102000 0%, #050605 65%);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 790px;
+  text-align: center;
+}
+
+.corrente {
+  font-size: 100px;
+  line-height: 1.2;
+  color: var(--verde);
+  filter: drop-shadow(0 0 15px #9cff0080);
+  margin-bottom: 15px;
 }
 
 h1 {
-  margin: 0 0 8px;
-  font-size: clamp(24px, 5.5vw, 40px);
-  line-height: 1.2;
+  margin: 0;
+  font-size: clamp(28px, 6vw, 49px);
+  line-height: 1.12;
   font-weight: 900;
+  text-transform: uppercase;
 }
 
-h2 {
-  margin: 0 0 28px;
-  color: #8cff00;
-  font-size: clamp(22px, 5vw, 38px);
-  line-height: 1.2;
-  font-weight: 900;
+h1 span {
+  display: block;
+  color: var(--verde);
+  margin-top: 5px;
 }
 
-.descricao {
-  margin: 0 auto 35px;
+.subtitulo {
   color: #ccc;
-  font-size: clamp(16px, 3.5vw, 21px);
+  font-size: 16px;
   line-height: 1.6;
+  margin: 22px auto;
+  max-width: 470px;
 }
 
 .linha {
   display: flex;
   align-items: center;
-  gap: 25px;
-  margin-bottom: 28px;
-  color: #8cff00;
+  justify-content: center;
+  gap: 20px;
+  max-width: 400px;
+  margin: 25px auto;
+  color: var(--verde);
 }
 
 .linha::before,
 .linha::after {
   content: "";
+  height: 2px;
   flex: 1;
-  height: 4px;
-  background: #8cff00;
-  box-shadow: 0 0 12px #69ff00;
+  background: var(--verde);
+  box-shadow: 0 0 8px var(--verde);
 }
 
 .ponto {
-  font-size: 27px;
+  width: 10px;
+  height: 10px;
+  background: var(--verde);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--verde);
 }
 
 .seta {
-  display: inline-block;
-  color: #8cff00;
   font-size: 76px;
+  color: var(--verde);
   line-height: 1;
-  margin-bottom: 30px;
-  text-shadow: 0 0 12px #69ff00, 0 0 25px #69ff00;
-  animation: setaMovimento 0.8s ease-in-out infinite, setaPisca 1s steps(2, start) infinite;
+  margin: 15px 0 30px;
+  filter: drop-shadow(0 0 10px #9cff0070);
+  animation: descer 1.5s infinite ease-in-out;
 }
 
-@keyframes setaMovimento {
-  0%, 100% { transform: translateY(-8px); }
-  50% { transform: translateY(12px); }
-}
-
-@keyframes setaPisca {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.45; }
-}
-
-.caixa-link {
+.caixa {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 12px;
-  border: 2px solid #444;
-  border-radius: 24px;
-  background: rgba(25, 25, 25, 0.9);
-  box-shadow: 0 0 18px rgba(80, 255, 0, 0.08);
+  gap: 12px;
+  padding: 13px;
+  border: 1px solid #454545;
+  border-radius: 16px;
+  background: #191919;
+  box-shadow: 0 12px 35px #0008;
 }
 
-.endereco {
+.link {
   flex: 1;
   min-width: 0;
   overflow-wrap: anywhere;
   text-align: left;
-  padding: 8px;
-  font-size: clamp(12px, 3.4vw, 20px);
+  font-size: clamp(13px, 3vw, 21px);
+  padding-left: 8px;
 }
 
-.botao {
-  flex-shrink: 0;
-  border: none;
-  border-radius: 17px;
-  background: #f12645;
+button {
+  border: 0;
+  border-radius: 12px;
+  background: var(--vermelho);
   color: white;
-  font-size: 17px;
-  padding: 16px 20px;
+  padding: 17px 23px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.botao:hover {
-  background: #d91535;
+button:hover {
+  filter: brightness(1.15);
 }
 
-.mensagem-copiado {
-  display: none;
-  margin: 18px auto 0;
-  padding: 15px 12px;
-  color: #8cff00;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 1.5;
-  text-align: center;
-  text-shadow: 0 0 8px #55ff00, 0 0 18px #39ff14;
-  animation: brilhoVerde 1.2s ease-in-out infinite alternate;
-}
-
-.mensagem-copiado.visivel {
-  display: block;
-}
-
-.mensagem-copiado p {
-  margin: 6px 0 0;
-  color: #c4ff9e;
-  font-size: 14px;
-  font-weight: normal;
-}
-
-@keyframes brilhoVerde {
-  from {
-    opacity: 0.75;
-    text-shadow: 0 0 5px #55ff00;
-  }
-  to {
-    opacity: 1;
-    text-shadow: 0 0 12px #55ff00, 0 0 25px #39ff14;
-  }
-}
-
-.contador {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
+#mensagem {
+  min-height: 22px;
   margin-top: 14px;
-  color: #c8f5a2;
-  font-size: 13px;
+  color: var(--verde);
+  font-size: 14px;
 }
 
-.olho,
-#totalVisitas {
-  color: #8cff00;
-}
-
-#totalVisitas {
-  font-weight: bold;
-}
-
-footer {
-  margin-top: 80px;
+.rodape {
   color: #777;
-  letter-spacing: 6px;
-  font-size: 13px;
+  font-size: 12px;
+  margin-top: 38px;
+  letter-spacing: 2px;
 }
 
-@media (max-width: 420px) {
-  body {
-    padding: 28px 12px;
-  }
+@keyframes descer {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(9px); }
+}
 
-  .marca {
-    margin-bottom: 38px;
-  }
-
-  .caixa-link {
-    padding: 7px;
-    border-radius: 17px;
-  }
-
-  .botao {
-    padding: 13px 12px;
-    font-size: 15px;
-  }
-
-  footer {
-    margin-top: 60px;
-  }
+@media (max-width: 450px) {
+  .corrente { font-size: 78px; }
+  .caixa { gap: 7px; padding: 9px; }
+  button { padding: 15px 13px; font-size: 14px; }
+  .subtitulo { font-size: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .seta {
-    animation: none;
-  }
-
-  .mensagem-copiado {
-    animation: none;
+  *, *::before, *::after {
+    animation: none !important;
   }
 }
 </style>
 </head>
 
 <body>
-<main class="pagina">
+<main class="container">
 
-  <div class="marca">
-    <span>Privê Webcam</span>
-  </div>
+  <div class="corrente" aria-hidden="true">🔗</div>
 
-  <h1>ACESSE PELO NAVEGADOR</h1>
-  <h2>COPIANDO O LINK ABAIXO</h2>
+  <h1>
+    Acesse pelo navegador
+    <span>copiando o link abaixo</span>
+  </h1>
 
-  <p class="descricao">
+  <p class="subtitulo">
     Toque no botão para copiar o endereço.
-    Depois, cole no navegador e acesse o link oficial da Privê Webcam.
+    Depois, cole no navegador e acesse
+    o link oficial do Privê Webcam.
   </p>
 
-  <div class="linha">
-    <span class="ponto">●</span>
+  <div class="linha" aria-hidden="true">
+    <span class="ponto"></span>
   </div>
 
-  <div class="seta" aria-label="Seta apontando para o link">↓</div>
+  <div class="seta" aria-hidden="true">↓</div>
 
-  <div class="caixa-link">
-    <div class="endereco">
-      https://youtube.com/@jennifercasada
+  <section class="caixa">
+    <div class="link" id="endereco">
+      x.com/Prive_WebCam
     </div>
 
-    <button class="botao" id="copiar" type="button">
+    <button id="copiar" type="button">
       Copiar
     </button>
-  </div>
+  </section>
 
-  <div id="mensagemCopiado" class="mensagem-copiado" role="status" aria-live="polite">
-    <span>✓ LINK COPIADO COM SUCESSO!</span>
-    <p>Agora cole no navegador e acesse o link oficial da Privê Webcam</p>
-  </div>
+  <p id="mensagem" role="status" aria-live="polite"></p>
 
-  <div class="contador">
-    <span class="olho">◉</span>
-    <span>VISITANTES:</span>
-    <span id="totalVisitas">...</span>
-  </div>
-
-  <footer>PRIVÊ WEBCAM</footer>
+  <div class="rodape">PRIVÊ WEBCAM</div>
 
 </main>
 
 <script>
+const endereco = "x.com/Prive_WebCam";
 const botao = document.getElementById("copiar");
-const endereco = "https://youtube.com/@jennifercasada";
-const mensagem = document.getElementById("mensagemCopiado");
+const mensagem = document.getElementById("mensagem");
 
-botao.addEventListener("click", async function () {
-  let copiou = false;
-
+botao.addEventListener("click", async () => {
   try {
-    await navigator.clipboard.writeText(endereco);
-    copiou = true;
-  } catch (erro) {
-    const campo = document.createElement("textarea");
-    campo.value = endereco;
-    campo.style.position = "fixed";
-    campo.style.opacity = "0";
-    document.body.appendChild(campo);
-    campo.select();
-
-    try {
-      copiou = document.execCommand("copy");
-    } catch (e) {
-      copiou = false;
-    }
-
-    campo.remove();
-  }
-
-  if (copiou) {
-    botao.textContent = "Copiado!";
-    mensagem.classList.add("visivel");
-  } else {
-    botao.textContent = "Tente novamente";
-    mensagem.classList.remove("visivel");
-  }
-
-  setTimeout(function () {
-    botao.textContent = "Copiar";
-  }, 2000);
-});
-
-// Contador de visitas
-(function () {
-  const campo = document.getElementById("totalVisitas");
-  const chave = "prive-webcam-visitas";
-
-  function atualizar(valor) {
-    if (valor !== undefined && valor !== null && !isNaN(Number(valor))) {
-      campo.textContent = Number(valor).toLocaleString("pt-BR");
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(endereco);
     } else {
-      campo.textContent = "—";
-    }
-  }
+      const campo = document.createElement("textarea");
+      campo.value = endereco;
+      campo.style.position = "fixed";
+      campo.style.left = "-9999px";
+      document.body.appendChild(campo);
+      campo.select();
 
-  fetch("https://countapi.mileshilliard.com/api/v1/hit/" + chave)
-    .then(function (res) { return res.json(); })
-    .then(function (dados) {
-      atualizar(dados.value);
-    })
-    .catch(function () {
-      fetch("https://countapi.mileshilliard.com/api/v1/get/" + chave)
-        .then(function (res) { return res.json(); })
-        .then(function (dados) {
-          atualizar(dados.value);
-        })
-        .catch(function () {
-          campo.textContent = "—";
-        });
-    });
-})();
+      const sucesso = document.execCommand("copy");
+      campo.remove();
+
+      if (!sucesso) throw new Error("Falha ao copiar");
+    }
+
+    botao.textContent = "Copiado!";
+    mensagem.textContent =
+      "Link copiado! Agora é só colar no navegador.";
+
+    setTimeout(() => {
+      botao.textContent = "Copiar";
+    }, 2500);
+
+  } catch (erro) {
+    mensagem.textContent =
+      "Copie o endereço manualmente: " + endereco;
+  }
+});
 </script>
 
 </body>
